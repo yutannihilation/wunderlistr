@@ -9,7 +9,7 @@ wndr_get_file <- function(id = NULL, task_id = NULL, list_id = NULL) {
   if (!is.null(id)) {
     wndr_api(verb = "GET",
              path = "/api/v1/files",
-             id = id)
+             id   = id)
   } else {
     query <- create_scalar_list(task_id = task_id,
                                 list_id = list_id)
@@ -20,7 +20,10 @@ wndr_get_file <- function(id = NULL, task_id = NULL, list_id = NULL) {
 }
 
 #' @export
-wndr_create_file <- function(upload_id, task_id, local_created_at = NULL) {
+wndr_create_file <- function(task_id, filepath, local_created_at = NULL) {
+  upload_info <- wndr_upload(filepath)
+  message(sprintf("file is successfully uploaded as ID %s", upload_info$id))
+
   if(!is.null(local_created_at) && any(class(local_created_at) == "POSIXt")) {
     local_created_at <- strftime(local_created_at, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
   }
@@ -28,7 +31,7 @@ wndr_create_file <- function(upload_id, task_id, local_created_at = NULL) {
   wndr_api(verb = "POST",
            path = "/api/v1/files",
            body = list(
-             upload_id = upload_id,
+             upload_id = upload_info$id,
              task_id = task_id,
              local_created_at = local_created_at
            ))
