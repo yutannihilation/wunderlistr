@@ -1,0 +1,14 @@
+Package: wunderlistr
+Type: Package
+Title: R interface to Wunderlist API
+Version: 0.1.0
+Authors@R: person("Hiroaki", "Yutani", email = "yutani.ini@gmail.com", role = c("aut", "cre"))
+Description: Provides an interface to Wunderlist API.
+License: MIT + file LICENSE
+LazyData: TRUE
+Imports:
+    httr,
+    jsonlite,
+    purrr
+RoxygenNote: 5.0.1
+Suggests: testthat
