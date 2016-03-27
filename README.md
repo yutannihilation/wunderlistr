@@ -4,7 +4,7 @@ R binding for Wunderlist API
 
 ## Wunderlist API
 
-Official documentation is here: [https://developer.wunderlist.com/documentation]
+Official documentation is here: https://developer.wunderlist.com/documentation
 
 ## Installation
 
