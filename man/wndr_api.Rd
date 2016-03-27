@@ -4,6 +4,6 @@
 \alias{wndr_api}
 \title{Send request to Wunderlist API}
 \usage{
-wndr_api(verb, path, ...)
+wndr_api(verb, path, id = NULL, ...)
 }
 
