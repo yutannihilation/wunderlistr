@@ -13,7 +13,6 @@ wndr_get_folder <- function(id = NULL) {
 }
 
 
-#' FIXME: multiple list_ids won't work
 #' @export
 wndr_create_folder <- function(title, list_ids) {
   wndr_api(verb = "POST",
