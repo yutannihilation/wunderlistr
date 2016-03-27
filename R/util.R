@@ -36,3 +36,22 @@ build_path_with_id <- function(path, id) {
 
   paste(path, id, sep = "/")
 }
+
+# Returns a scalar list when only one parameter is not NULL
+#
+# e.g.) crate_scalar_list(a = 1, b = NULL) -> OK
+#       crate_scalar_list(a = 1, b = 2) -> NG
+#       crate_scalar_list(a = NULL, b = NULL) -> NG
+create_scalar_list <- function(...) {
+  params <- list(...)
+  compact_list <- purrr::compact(params)
+
+  if (!purrr::is_scalar_list(compact_list)) {
+    param_names <- names(params)
+    last_index <- length(param_names)
+    stop(sprintf("Please specify either one of %s or %s",
+                 paste(param_names[-last_index], collapse = ", "), param_names[last_index]))
+  }
+
+  return(compact_list)
+}

@@ -27,8 +27,10 @@ wndr_create_list <- function(title) {
 }
 
 #' @export
-wndr_update_list <- function(id, revision, title) {
+wndr_update_list <- function(id, revision, title = NULL, public = NULL) {
   path <- build_path_with_id("/api/v1/lists", id)
+
+  body <- create_scalar_list(title  = title, public = public)
 
   wndr_api(verb = "PATCH",
            path = path,

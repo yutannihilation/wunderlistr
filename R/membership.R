@@ -10,13 +10,7 @@ wndr_get_membership <- function() {
 
 #' @export
 wndr_create_membership <- function(list_id, user_id = NULL, email = NULL, muted = NULL) {
-  body <- purrr::compact(
-    list(user_id  = user_id, email = email)
-  )
-
-
-  if (length(body) != 1) stop("Please specify either user_id or email")
-
+  body <- create_scalar_list(user_id  = user_id, email = email)
   body$muted <- muted
 
   wndr_api(verb = "POST",

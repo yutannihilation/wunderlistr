@@ -6,13 +6,9 @@
 #' @param list_id List ID
 #' @export
 wndr_get_file <- function(id = NULL, task_id = NULL, list_id = NULL) {
-  query <- purrr::compact(
-    list(id      = id,
-         task_id = task_id,
-         list_id = list_id)
-  )
-
-  if (length(query) != 1) stop("Please specify either id, task_id or list_id")
+  query <- create_scalar_list(id = id,
+                              task_id = task_id,
+                              list_id = list_id)
 
   if (names(query) == "id") {
     wndr_api(verb = "GET",
