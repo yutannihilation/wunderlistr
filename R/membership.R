@@ -21,10 +21,22 @@ wndr_create_membership <- function(list_id, user_id = NULL, email = NULL, muted 
 #' @export
 wndr_update_membership <- function(id, revision, state = "accepted", muted = NULL) {
   wndr_api(verb = "PATCH",
-           path = build_path_with_id("/api/v1/memberships", id),
+           path = "/api/v1/memberships",
+           id   = id,
            body = list(
              revision = revision,
              state = state,
              muted = muted
+           ))
+}
+
+
+#' @export
+wndr_delete_membership <- function(id, revision) {
+  wndr_api(verb = "DELETE",
+           path = "/api/v1/memberships",
+           id   = id,
+           body = list(
+             revision = revision
            ))
 }

@@ -6,14 +6,13 @@
 #' @param list_id List ID
 #' @export
 wndr_get_file <- function(id = NULL, task_id = NULL, list_id = NULL) {
-  query <- create_scalar_list(id = id,
-                              task_id = task_id,
-                              list_id = list_id)
-
-  if (names(query) == "id") {
+  if (!is.null(id)) {
     wndr_api(verb = "GET",
-             path = build_path_with_id("/api/v1/files", query$id))
+             path = "/api/v1/files",
+             id = id)
   } else {
+    query <- create_scalar_list(task_id = task_id,
+                                list_id = list_id)
     wndr_api(verb = "GET",
              path = "/api/v1/files",
              query = query)
@@ -37,10 +36,9 @@ wndr_create_file <- function(upload_id, task_id, local_created_at = NULL) {
 
 #' @export
 wndr_delete_file <- function(id, revision) {
-    path <- build_path_with_id("/api/v1/files", id)
-
     wndr_api(verb = "DELETE",
-             path = path,
+             path = "/api/v1/files",
+             id   = id,
              query = list(
                revision = revision
              ))
