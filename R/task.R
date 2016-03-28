@@ -46,7 +46,7 @@ wndr_create_task <- function(list_id, title, assignee_id = NULL, completed = FAL
 
 
 #' @export
-wndr_update_task <- function(id, revision, title, assignee_id = NULL, completed = FALSE,
+wndr_update_task <- function(id, revision, title = NULL, assignee_id = NULL, completed = NULL,
                              recurrence_type = c("day", "week", "month", "year"), recurrence_count = NULL,
                              due_date = NULL, starred = NULL, remove = NULL) {
 
