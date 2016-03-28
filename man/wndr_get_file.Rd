@@ -14,7 +14,10 @@ wndr_get_file(id = NULL, task_id = NULL, list_id = NULL)
 \item{list_id}{List ID}
 }
 \description{
-File API
+A task may contain files.
+}
+\details{
+When you use \code{wndr_get_file}, you have to specify either one of \code{id}, \code{task_id}, \code{list_id}.
 }
 \seealso{
 \url{https://developer.wunderlist.com/documentation/endpoints/file}
