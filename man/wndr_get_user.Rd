@@ -4,10 +4,13 @@
 \alias{wndr_get_user}
 \title{User API}
 \usage{
-wndr_get_user()
+wndr_get_user(list_id = NULL)
+}
+\arguments{
+\item{list_id}{List ID}
 }
 \description{
-User API
+All info related to the currently signed in user.
 }
 \seealso{
 \url{https://developer.wunderlist.com/documentation/endpoints/user}
