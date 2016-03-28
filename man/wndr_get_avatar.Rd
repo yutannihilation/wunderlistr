@@ -4,7 +4,15 @@
 \alias{wndr_get_avatar}
 \title{Avatar API}
 \usage{
-wndr_get_avatar(user_id, size, fallback = FALSE)
+wndr_get_avatar(user_id, size = c(25, 28, 30, 32, 50, 54, 56, 60, 64, 108,
+  128, 135, 256, 270, 512), fallback = TRUE)
+}
+\arguments{
+\item{user_id}{User ID.}
+
+\item{size}{Image size. Possible values are 25, 28, 30, 32, 50, 54, 56, 60, 64, 108, 128, 135, 256, 270, 512.}
+
+\item{fallback}{If \code{FALSE}, no content will be returned when there is no custom avatar uploaded for the given \code{user_id}.}
 }
 \value{
 matrix, the parsed result of response PNG image.
