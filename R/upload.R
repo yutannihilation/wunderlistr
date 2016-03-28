@@ -1,6 +1,10 @@
 #' Upload API
 #'
+#' Upload a file to use it via File API.
+#'
 #' @seealso \url{https://developer.wunderlist.com/documentation/endpoints/upload}
+#'
+#' @param filepath Path to a file
 #'
 #' @export
 wndr_upload <- function(filepath) {

@@ -6,8 +6,11 @@
 \usage{
 wndr_upload(filepath)
 }
+\arguments{
+\item{filepath}{Path to a file}
+}
 \description{
-Upload API
+Upload a file to use it via File API.
 }
 \seealso{
 \url{https://developer.wunderlist.com/documentation/endpoints/upload}
