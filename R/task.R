@@ -1,23 +1,59 @@
 #' Task API
 #'
+#' Tasks are children of lists.
+#'
 #' @seealso \url{https://developer.wunderlist.com/documentation/endpoints/task}
+#' @name wndr_task
+#'
+#' @param id Task ID
+#' @param list_id List ID.
+#' @param completed Whether the task is completed or not.
+#' @param title Task title.
+#' @param assignee_id User ID.
+#' @param recurrence_type Type of reccurence. Possible values are: "day", "week", "month", "year".
+#' @param reccurence_count Count of reccurence.
+#' @param due_date Due date.
+#' @param starred Whether the task is starred or not.
+#' @param remove Array of attributes to delete from the task, e.g. \code{"due_date"}.
+#' @param revision Revision.
+#'
+#' @examples
+#' \dontrun{
+#' # get tasks
+#' l <- wndr_get_list()
+#' t <- wndr_get_task(list_id = l$id[1])
+#'
+#' # create a task
+#' t <- wndr_create_task(list_id = l$id[2], title = "test")
+#'
+#' # create a recurrence task
+#' wndr_create_task(list_id = l$id[2], title = "test", recurrence_type = "week", recurrence_count = 1, due_date = Sys.Date())
+#'
+#' # update the task
+#' t <- wndr_update_task(id = t$id, revision = t$revision, completed = TRUE)
+#'
+#' # delete the task
+#' wndr_delete_task(id = t$id, revision = t$revision)
+#' }
 #'
 #' @export
 wndr_get_task <- function(id = NULL, list_id = NULL, completed = NULL) {
+  query <- create_scalar_list(id      = id,
+                              list_id = list_id)
+  query$completed <- completed
+
   if (!is.null(id)) {
     wndr_api(verb = "GET",
              path = "/api/v1/tasks",
              id   = id)
   } else {
-    query <- create_scalar_list(list_id = list_id)
-    query$completed <- completed
-
     wndr_api(verb = "GET",
              path = "/api/v1/tasks",
              query = query)
   }
 }
 
+#' @rdname wndr_task
 #' @export
 wndr_create_task <- function(list_id, title, assignee_id = NULL, completed = FALSE,
                              recurrence_type = c("day", "week", "month", "year"), recurrence_count = NULL,
@@ -45,6 +81,7 @@ wndr_create_task <- function(list_id, title, assignee_id = NULL, completed = FAL
 }
 
 
+#' @rdname wndr_task
 #' @export
 wndr_update_task <- function(id, revision, title = NULL, assignee_id = NULL, completed = NULL,
                              recurrence_type = c("day", "week", "month", "year"), recurrence_count = NULL,
@@ -73,6 +110,7 @@ wndr_update_task <- function(id, revision, title = NULL, assignee_id = NULL, com
 
 }
 
+#' @rdname wndr_task
 #' @export
 wndr_delete_task <- function(id, revision) {
   wndr_delete_common(id, revision, "/api/v1/tasks")
