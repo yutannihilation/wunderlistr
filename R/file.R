@@ -4,9 +4,15 @@
 #'
 #' @seealso \url{https://developer.wunderlist.com/documentation/endpoints/file}
 #'
+#' @name wndr_file
+#'
 #' @param id File ID
 #' @param task_id Task ID
 #' @param list_id List ID
+#' @param filepath Path to a local file you want to upload.
+#' @param local_created_at Date used to sort the files and comments in the right order
+#' @param revision Revision
+#'
 #' @details
 #' When you use \code{wndr_get_file}, you have to specify either one of \code{id}, \code{task_id}, \code{list_id}.
 #'
@@ -27,6 +33,7 @@ wndr_get_file <- function(id = NULL, task_id = NULL, list_id = NULL) {
   }
 }
 
+#' @rdname wndr_file
 #' @export
 wndr_create_file <- function(task_id, filepath, local_created_at = NULL) {
   upload_info <- wndr_upload(filepath)
@@ -45,12 +52,8 @@ wndr_create_file <- function(task_id, filepath, local_created_at = NULL) {
            ))
 }
 
+#' @rdname wndr_file
 #' @export
 wndr_delete_file <- function(id, revision) {
-    wndr_api(verb = "DELETE",
-             path = "/api/v1/files",
-             id   = id,
-             query = list(
-               revision = revision
-             ))
+  wndr_delete_common(id, revision, "/api/v1/files")
 }
