@@ -32,19 +32,7 @@
 #'
 #' @export
 wndr_get_file <- function(id = NULL, task_id = NULL, list_id = NULL) {
-  query <- create_scalar_list(id = NULL,
-                              task_id = task_id,
-                              list_id = list_id)
-
-  if (!is.null(id)) {
-    wndr_api(verb = "GET",
-             path = "/api/v1/files",
-             id   = id)
-  } else {
-    wndr_api(verb = "GET",
-             path = "/api/v1/files",
-             query = query)
-  }
+  wndr_get_by_id_or_list_or_task(id, task_id, list_id, "/api/v1/files")
 }
 
 #' @rdname wndr_file

@@ -41,6 +41,22 @@ wndr_delete_common <- function(id, revision, path) {
            ))
 }
 
+wndr_get_by_id_or_list_or_task <- function(id, task_id, list_id, path) {
+  query <- create_scalar_list(id      = id,
+                              task_id = task_id,
+                              list_id = list_id)
+
+  if (!is.null(id)) {
+    wndr_api(verb = "GET",
+             path = path,
+             id   = id)
+  } else {
+    wndr_api(verb = "GET",
+             path = path,
+             query = query)
+  }
+}
+
 build_path_with_id <- function(path, id) {
   if (!purrr::is_scalar_numeric(id) && !purrr::is_scalar_character(id)) {
     stop("id must be a single numeric or character")
