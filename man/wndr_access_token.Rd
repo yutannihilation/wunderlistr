@@ -13,7 +13,7 @@ wndr_access_token(cache_as_envvar = TRUE,
 \item{cache_as_file}{If \code{TRUE}, save the token to the local file \code{.httr-oauth}.}
 }
 \description{
-OAuth settings for Wunderlist API
+Get an OAuth2.0 access token.
 }
 \seealso{
 \link[httr]{oauth2.0_token}

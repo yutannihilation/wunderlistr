@@ -1,5 +1,7 @@
 #' OAuth settings for Wunderlist API
 #'
+#' Get an OAuth2.0 access token.
+#'
 #' @param cache_as_envvar If \code{TRUE}, store the token as the environmental variable \code{WUNDERLIST_TOKEN}.
 #' @param cache_as_file If \code{TRUE}, save the token to the local file \code{.httr-oauth}.
 #' @seealso \link[httr]{oauth2.0_token}
