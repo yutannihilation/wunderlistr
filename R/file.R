@@ -13,6 +13,18 @@
 #' @param local_created_at Date used to sort the files and comments in the right order
 #' @param revision Revision
 #'
+#' @examples
+#' \dontrun{
+#' l <- wndr_get_list()
+#'
+#' wndr_get_file(list_id = l$id[1])
+#'
+#' t <- wndr_get_task(list_id = l$id[1])
+#' f <- wndr_create_file(task_id = t$id[1], filepath = "/path/to/file")
+#'
+#' wndr_delete_file(id = f$id, revision = f$revision)
+#' }
+#'
 #' @details
 #' When you use \code{wndr_get_file}, you have to specify either one of \code{id}, \code{task_id}, \code{list_id}.
 #'
