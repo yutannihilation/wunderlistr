@@ -36,10 +36,5 @@ wndr_update_list <- function(id, revision, title = NULL, public = NULL) {
 
 #' @export
 wndr_delete_list <- function(id, revision) {
-  wndr_api(verb = "DELETE",
-           path = "/api/v1/lists",
-           id   = id,
-           query = list(
-             revision = revision
-           ))
+  wndr_delete_common(id, revision, "/api/v1/lists")
 }

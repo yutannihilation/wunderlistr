@@ -75,10 +75,5 @@ wndr_update_task <- function(id, revision, title = NULL, assignee_id = NULL, com
 
 #' @export
 wndr_delete_task <- function(id, revision) {
-  wndr_api(verb = "DELETE",
-           path = "/api/v1/tasks",
-           id   = id,
-           query = list(
-             revision = revision
-           ))
+  wndr_delete_common(id, revision, "/api/v1/tasks")
 }

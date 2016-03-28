@@ -46,10 +46,5 @@ wndr_update_subtask <- function(id, revision, title = NULL, completed = NULL) {
 
 #' @export
 wndr_delete_subtask <- function(id, revision) {
-  wndr_api(verb = "DELETE",
-           path = "/api/v1/subtasks",
-           id   = id,
-           query = list(
-             revision = revision
-           ))
+  wndr_delete_common(id, revision, "/api/v1/subtasks")
 }

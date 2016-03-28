@@ -24,11 +24,6 @@ wndr_create_webhook <- function(list_id, url, processor_type = "generic", config
 }
 
 #' @export
-wndr_delete_task <- function(id, revision) {
-  wndr_api(verb = "DELETE",
-           path = "/api/v1/webhooks",
-           id   = id,
-           query = list(
-             revision = revision
-           ))
+wndr_delete_webhook <- function(id, revision) {
+  wndr_delete_common(id, revision, "/api/v1/webhook")
 }

@@ -31,6 +31,16 @@ wndr_api <- function(verb, path, id = NULL, ...) {
 
 }
 
+
+wndr_delete_common <- function(id, revision, path) {
+  wndr_api(verb = "DELETE",
+           path = path,
+           id   = id,
+           query = list(
+             revision = revision
+           ))
+}
+
 build_path_with_id <- function(path, id) {
   if (!purrr::is_scalar_numeric(id) && !purrr::is_scalar_character(id)) {
     stop("id must be a single numeric or character")

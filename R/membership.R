@@ -33,10 +33,6 @@ wndr_update_membership <- function(id, revision, state = "accepted", muted = NUL
 
 #' @export
 wndr_delete_membership <- function(id, revision) {
-  wndr_api(verb = "DELETE",
-           path = "/api/v1/memberships",
-           id   = id,
-           body = list(
-             revision = revision
-           ))
+  wndr_delete_common(id, revision, "/api/v1/memberships")
+
 }

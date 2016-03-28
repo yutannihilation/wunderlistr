@@ -33,10 +33,5 @@ wndr_update_folder <- function(id, revision, title = NULL, list_ids = NULL) {
 
 #' @export
 wndr_delete_folder <- function(id, revision) {
-  wndr_api(verb = "DELETE",
-           path = "/api/v1/folders",
-           id   = id,
-           query = list(
-             revision = revision
-           ))
+  wndr_delete_common(id, revision, "/api/v1/folders")
 }

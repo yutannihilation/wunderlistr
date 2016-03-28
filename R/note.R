@@ -40,10 +40,5 @@ wndr_update_note <- function(id, revision, content) {
 
 #' @export
 wndr_delete_note <- function(id, revision) {
-  wndr_api(verb = "DELETE",
-           path = "/api/v1/notes",
-           id   = id,
-           query = list(
-             revision = revision
-           ))
+  wndr_delete_common(id, revision, "/api/v1/notes")
 }

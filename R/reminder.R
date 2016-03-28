@@ -39,10 +39,5 @@ wndr_update_reminder <- function(id, date, revision) {
 
 #' @export
 wndr_delete_reminder <- function(id, revision) {
-  wndr_api(verb = "DELETE",
-           path = "/api/v1/reminders",
-           id   = id,
-           query = list(
-             revision = revision
-           ))
+  wndr_delete_common(id, revision, "/api/v1/reminders")
 }
