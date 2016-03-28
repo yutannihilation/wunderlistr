@@ -19,9 +19,14 @@ devtools::install_github("yutannihilation/wunderlistr")
 At first, you have to get token and cache it locally. The token is cached as an environmental variable and optionally as a local file `.httr-oauth` (The latter is done by **httr** package).
 
 ```r
-library(wunderlist)
+library(wunderlistr)
 
 wndr_access_token()
+#> Use a local file to cache OAuth access credentials between R sessions?
+#> 1: Yes
+#> 2: No
+#> 
+#> Selection:
 #> [1] "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ```
 
