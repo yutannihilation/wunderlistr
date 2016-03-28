@@ -41,10 +41,13 @@ wndr_delete_common <- function(id, revision, path) {
            ))
 }
 
-wndr_get_by_id_or_list_or_task <- function(id, task_id, list_id, path) {
+wndr_get_by_id_or_list_or_task <- function(id, task_id, list_id, path, ...) {
   query <- create_scalar_list(id      = id,
                               task_id = task_id,
                               list_id = list_id)
+  # add additional parameters
+  other_query <- purrr::compact(list(...))
+  query <- modifyList(query, other_query)
 
   if (!is.null(id)) {
     wndr_api(verb = "GET",
