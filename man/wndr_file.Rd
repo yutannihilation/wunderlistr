@@ -34,13 +34,15 @@ When you use \code{wndr_get_file}, you have to specify either one of \code{id}, 
 }
 \examples{
 \dontrun{
+# get files
 l <- wndr_get_list()
-
 wndr_get_file(list_id = l$id[1])
 
+# attach a file to some task
 t <- wndr_get_task(list_id = l$id[1])
 f <- wndr_create_file(task_id = t$id[1], filepath = "/path/to/file")
 
+# delete the file
 wndr_delete_file(id = f$id, revision = f$revision)
 }
 
