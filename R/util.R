@@ -1,9 +1,5 @@
 # Utilities
 
-#' @name wndr_api
-#' @title Send request to Wunderlist API
-#'
-#' @export
 wndr_api <- function(verb, path, id = NULL, ...) {
   if (!is.null(id)) path <- build_path_with_id(path, id)
 

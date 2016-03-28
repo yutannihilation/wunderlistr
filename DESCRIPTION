@@ -6,6 +6,8 @@ Authors@R: person("Hiroaki", "Yutani", email = "yutani.ini@gmail.com", role = c(
 Description: Provides an interface to Wunderlist API.
 License: MIT + file LICENSE
 LazyData: TRUE
+Depends:
+    R (>= 3.1.2)
 Imports:
     httr,
     jsonlite,

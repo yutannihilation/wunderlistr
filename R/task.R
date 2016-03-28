@@ -11,7 +11,7 @@
 #' @param title Task title.
 #' @param assignee_id User ID.
 #' @param recurrence_type Type of reccurence. Possible values are: "day", "week", "month", "year".
-#' @param reccurence_count Count of reccurence.
+#' @param recurrence_count Count of reccurence.
 #' @param due_date Due date.
 #' @param starred Whether the task is starred or not.
 #' @param remove Array of attributes to delete from the task, e.g. \code{"due_date"}.
@@ -27,7 +27,8 @@
 #' t <- wndr_create_task(list_id = l$id[2], title = "test")
 #'
 #' # create a recurrence task
-#' wndr_create_task(list_id = l$id[2], title = "test", recurrence_type = "week", recurrence_count = 1, due_date = Sys.Date())
+#' wndr_create_task(list_id = l$id[2], title = "test",
+#'                  recurrence_type = "week", recurrence_count = 1, due_date = Sys.Date())
 #'
 #' # update the task
 #' t <- wndr_update_task(id = t$id, revision = t$revision, completed = TRUE)
