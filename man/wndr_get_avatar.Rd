@@ -18,7 +18,7 @@ wndr_get_avatar(user_id, size = c(25, 28, 30, 32, 50, 54, 56, 60, 64, 108,
 matrix, the parsed result of response PNG image.
 }
 \description{
-Avatar API
+User avatars of different sizes can be fetched or loaded inline in HTML.
 }
 \examples{
 \dontrun{

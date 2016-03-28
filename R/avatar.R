@@ -1,5 +1,7 @@
 #' Avatar API
 #'
+#' User avatars of different sizes can be fetched or loaded inline in HTML.
+#'
 #' @seealso \url{https://developer.wunderlist.com/documentation/endpoints/avatar}
 #'
 #' @param user_id User ID.
